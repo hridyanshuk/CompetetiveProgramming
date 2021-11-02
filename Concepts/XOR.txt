@@ -1,0 +1,17 @@
+1. How to find XOR of two numbers
+
+    XOR of a and b = (a|b)-(a&b)
+
+    a   : 10001001010
+    b   : 10110100101
+        -----------------
+    a|b : 10111101111
+    a&b : 10000000000
+
+2. XOR of numbers from 1 to n
+
+    c = n modulo 4
+    if c=0  :   XOR=n
+    if c=1  :   XOR=1
+    if c=2  :   XOR=n+1
+    if c=3  :   XOR=0;
