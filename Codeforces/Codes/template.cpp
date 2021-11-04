@@ -8,6 +8,8 @@ typedef long long ll;
 
 #define FOR(i,m,n) for(int i=m ; i<n ; i++)
 #define XOR(a,b) ((a)|(b))-((a)&(b))
+#define YES cout<<"YES\n"
+#define NO cout<<"NO\n"
 
 const ll MOD_N=1000000007;
 
@@ -67,6 +69,24 @@ int xorTillN(int n)
         return 0;
         break;
     }
+}
+
+void delFromArr(int *arr, int i, int *n)
+{
+    FOR(j,i,*n-1)
+    {
+        arr[j]=arr[j+1];
+    }
+    *n=*n-1;
+}
+
+int MIN(int a, int b)
+{
+    if(a<b)
+    {
+        return a;
+    }
+    return b;
 }
 
 int main()

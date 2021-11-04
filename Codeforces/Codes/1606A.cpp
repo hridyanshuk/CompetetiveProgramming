@@ -8,6 +8,8 @@ typedef long long ll;
 
 #define FOR(i,m,n) for(int i=m ; i<n ; i++)
 #define XOR(a,b) ((a)|(b))-((a)&(b))
+#define YES cout<<"YES\n"
+#define NO cout<<"NO\n"
 
 const ll MOD_N=1000000007;
 
@@ -69,6 +71,15 @@ int xorTillN(int n)
     }
 }
 
+void delFromArr(int *arr, int i, int *n)
+{
+    FOR(j,i,*n-1)
+    {
+        arr[j]=arr[j+1];
+    }
+    *n=*n-1;
+}
+
 int main()
 {
     int t;
@@ -77,112 +88,36 @@ int main()
     {
         char s[101];
         cin>>s;
-        int a=0;
-        int b=0;
-        int ab=0;
-        int ba=0;
-        int abindex[100];
-        int baindex[100];
-        int jab=0, jba=0;
-        FOR(i,0,strlen(s))
+        int n=strlen(s);
+        int a=0, b=0;
+        FOR(i,0,n-1)
         {
-            if(s[i]=='a')    
+            if(s[i]!=s[i+1])
             {
-                a++;
-                if(s[i+1]=='b')
+                if(s[i]=='a')
                 {
-                    ab++;
+                    a++;
+                }
+                else
+                {
                     b++;
-                    abindex[jab++]=i;
-                }
-            }
-            else if(s[i+1]=='a')
-            {
-                ba++;
-                b++;
-                baindex[jba++]=i;
-            }
-        }
-        int diff=0;
-        if(ab>ba)
-        {
-            diff=ab-ba;
-            
-            if(diff==0)
-                break;
-            
-            
-            FOR(i,0,jab)
-            {
-                if(diff==0)
-                {
-                    break;
-                }
-                if(abindex[i]==0)
-                {
-                    s[0]='b';
-                    diff--;
-                    continue;
-                }
-                
-                else if(s[abindex[i]-1]!='b' && s[abindex[i]+2]!='a')
-                {
-                    s[abindex[i]]='b';
-                    diff--;
                 }
             }
         }
-        
-        
-        else if(ba>ab)
+        if(a==b)
         {
-            diff=ba-ab;
-            
-            if(diff==0)
-                break;
-            
-            
-            FOR(i,0,jba)
-            {
-                if(diff==0)
-                {
-                    break;
-                }
-                if(baindex[i]==0)
-                {
-                    s[0]='a';
-                    diff--;
-                    continue;
-                }
-                
-                else if(s[abindex[i]-1]!='a' && s[abindex[i]+2]!='b')
-                {
-                    s[abindex[i]]='a';
-                    diff--;
-                }
-            }
+            cout<<s<<endl;
         }
-        if(diff!=0)
+        else if(a>b)
         {
-            if(ab>ba)
-            {
-                FOR(i,0,strlen(s))
-                {
-                    cout<<'a';
-                }
-                cout<<endl;
-            }
-            else
-            {
-                FOR(i,0,strlen(s))
-                {
-                    cout<<'b';
-                }
-                cout<<endl;
-            }
+            s[0]='b';
+            cout<<s<<endl;
         }
         else
+        {
+            s[0]='a';
             cout<<s<<endl;
+        }
     }
 
     return 0;

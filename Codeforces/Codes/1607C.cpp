@@ -1,7 +1,5 @@
-#include <iostream>
-#include <string.h>
-#include <math.h>
-#include <vector>
+
+#include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
@@ -10,43 +8,6 @@ typedef long long ll;
 #define XOR(a,b) ((a)|(b))-((a)&(b))
 
 const ll MOD_N=1000000007;
-
-
-void insertionSort(int *arr, int n, int start, int seq)
-{
-    for(int i=start+seq ; i<n ; i=i+seq)
-    {
-        int t=arr[i];
-        for(int j=i-seq ; j>=start ; j=j-seq)
-        {
-            if(t>arr[j])
-            {
-                break;
-            }
-            else
-            {
-                arr[j+seq]=arr[j];
-                arr[j]=t;
-            }
-        }
-    }
-}
-int calc(int i, int p)
-{
-    return (int)pow(2,p-i)-1;
-}
-void shellSort(int *arr, int n)
-{
-    int p=log(n)/log(2);
-    for(int i=0 ; i<p ; i++)
-    {
-        int seq=calc(i,p);
-        for(int j=0 ; j<seq ; j++)
-        {
-            insertionSort(arr, n, j, seq);
-        }
-    }
-}
 
 
 ll factModn(ll m, ll n)
@@ -128,7 +89,7 @@ int main()
         {
             cin>>arr[i];
         }
-        shellSort(arr, n);
+        sort(arr, arr+n);
         int max=arr[0];
         int ntemp=n;
         FOR(i,1,n)
