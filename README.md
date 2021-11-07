@@ -3,7 +3,8 @@ This is a repository only for storing all codes related to Competetive Programmi
 
 <ul>
   <li>
-    <ul><a href="Codeforces">Codeforces</a>
+    <a href="Codeforces">Codeforces</a>
+    <ul>
       <li><a href="Codeforces/Codes">Codes</a></li>
     </ul>
   </li>
