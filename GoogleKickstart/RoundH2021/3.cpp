@@ -71,7 +71,7 @@ int xorTillN(int n)
     }
 }
 
-void delFromArr(int *arr, int i, int *n)
+void delFromArr(char *arr, int i, int *n)
 {
     FOR(j,i,*n-1)
     {
@@ -93,10 +93,31 @@ int main()
 {
     int t;
     cin>>t;
-    while(t--)
+    FOR(k,0,t)
     {
         int n;
         cin>>n;
+        n=n+1;
+        char s[n];
+        cin>>s;
+        
+        int c=0;
+        do
+        {
+            c=0;
+            FOR(i,0,n-1)
+            {
+                if(s[i+1]-'0'==(s[i]-'0'+1)%10 && i+1<n-1)
+                {
+                    delFromArr(s, i, &n);
+                    //s[n-1]='\0';
+                    s[i]='0'+(s[i]-'0'+1)%10;
+                    c++;
+                    i--;
+                }
+            }
+        }while(c!=0);
+        cout<<"Case #"<<k+1<<": "<<s<<endl;
     }
 
     return 0;

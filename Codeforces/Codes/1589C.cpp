@@ -2,6 +2,7 @@
 #include <string.h>
 #include <math.h>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 typedef long long ll;
@@ -97,6 +98,31 @@ int main()
     {
         int n;
         cin>>n;
+        int a[n];
+        input(a, n);
+        int b[n];
+        input(b, n);
+        bool status=true;
+        sort(a, a+n);
+        sort(b, b+n);
+        FOR(i,0,n)
+        {
+            if(a[i]+1==b[i] || a[i]==b[i])
+            {
+                continue;
+            }
+            else
+            {
+                status=false;
+                break;
+            }
+        }
+        
+
+        if(status)
+            YES;
+        else
+            NO;
     }
 
     return 0;

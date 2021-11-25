@@ -11,6 +11,7 @@ typedef long long ll;
 #define YES cout<<"YES\n"
 #define NO cout<<"NO\n"
 
+
 const ll MOD_N=1000000007;
 
 ll factModn(ll m, ll n)
@@ -88,15 +89,78 @@ int MIN(int a, int b)
     }
     return b;
 }
+bool RED(char a)
+{
+    if((a=='R')||(a=='O')||(a=='P')||(a=='A'))
+        return true;
+    return false;
+}
+bool YEL(char a)
+{
+    if((a=='Y')||(a=='O')||(a=='G')||(a=='A'))
+        return true;
+    return false;
+}
+bool BLUE(char a)
+{
+    if((a=='B')||(a=='G')||(a=='P')||(a=='A'))
+        return true;
+    return false;
+}
+
 
 int main()
 {
     int t;
     cin>>t;
-    while(t--)
+    FOR(k,0,t)
     {
         int n;
         cin>>n;
+        char s[n+1];
+        cin>>s;
+        int count=0;
+        FOR(i,0,n)
+        {
+            //cout<<'e';
+            if(RED(s[i]))
+            {
+                //cout<<'y';
+                //cout<<i<<endl;
+                while(RED(s[i+1]) && i+1<n)
+                {
+                    i++;
+                }
+                
+                //cout<<i<<endl;
+                count++;
+            }
+            
+        }
+        FOR(i,0,n)
+        {
+            if(YEL(s[i]))
+            {
+                while(YEL(s[i+1]) && i+1<n)
+                {
+                    i++;
+                }
+                count++;
+            }
+            
+        }
+        FOR(i,0,n)
+        {
+            if(BLUE(s[i]))
+            {
+                while(BLUE(s[i+1]) && i+1<n)
+                {
+                    i++;
+                }
+                count++;
+            }
+        }
+        cout<<"Case #"<<k+1<<": "<<count<<endl;
     }
 
     return 0;

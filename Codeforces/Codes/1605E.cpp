@@ -89,14 +89,81 @@ int MIN(int a, int b)
     return b;
 }
 
+void diff(int *a, int *b, int *arr, int n)
+{
+    FOR(i,0,n)
+    {
+        arr[i]=a[i]-b[i];
+    }
+}
+
+int solve(int *arr, int n)
+{
+    int sum=0;
+    if(arr[0]!=0)
+    {
+        int t=arr[0];
+        FOR(i,0,n)
+        {
+            arr[i]=arr[i]-t;
+        }
+        sum=sum+abs(t);
+    }
+   
+    FOR(i,2,n+1)
+    {
+        if(prime(i))
+        {
+            if(arr[i-1]!=0)
+            {
+                int t=arr[i-1];
+                FOR(j,0, n/i)
+                {
+                    arr[i*(j+1)-1]=arr[i*(j+1)-1]-t;
+                }
+                sum=sum+abs(t);
+            }
+        }
+    }
+   
+    FOR(i,4,n+1)
+    {
+        if(!prime(i))
+        {
+            if(arr[i-1]!=0)
+            {
+                int t=arr[i-1];
+                FOR(j,0, n/i)
+                {
+                    arr[i*(j+1)-1]=arr[i*(j+1)-1]-t;
+                }
+                sum=sum+abs(t);
+            }
+        }
+    }
+  
+    return sum;
+}
+
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
+    int n;
+    cin>>n;
+    int a[n];
+    int b[n];
+    input(a, n);
+    input(b,n);
+    int q;
+    cin>>q;
+    int arr[q];
+    input(arr, q);
+    int c[n];
+    FOR(i,0,q)
     {
-        int n;
-        cin>>n;
+        b[0]=arr[i];
+        
+        diff(a, b, c, n);
+        cout<<solve(c, n)<<endl;
     }
 
     return 0;

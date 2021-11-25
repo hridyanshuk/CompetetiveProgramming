@@ -95,8 +95,11 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n;
-        cin>>n;
+        ll u, v;
+        cin>>u>>v;
+        ll x=-1L*u*u;
+        ll y=v*v;
+        cout<<x<<" "<<y<<endl;
     }
 
     return 0;

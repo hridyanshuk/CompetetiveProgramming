@@ -91,13 +91,40 @@ int MIN(int a, int b)
 
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
-    {
-        int n;
-        cin>>n;
-    }
+
+        int n, m;
+        cin>>n>>m;
+        int arr[n];
+        input(arr, n);
+        
+        int b[m];
+        input(b, m);
+        FOR(i,1,n)
+        {
+            arr[i]=arr[i]+arr[i-1];
+        }
+        output(arr, n);
+        int start=0;
+        FOR(i,0,m)
+        {
+            for(int j=0 ; j<n ; j++)
+            {
+                if(arr[j]>=b[i])
+                {
+                    if(j==0)
+                    {
+                        cout<<j+1<<" "<<b[i]<<endl;
+                    }
+                    else
+                    {
+                        cout<<j+1<<" "<<b[i]-arr[j-1]<<endl;
+                        start=j;
+                    }
+                    break;
+                }
+            }
+        }
+    
 
     return 0;
 }

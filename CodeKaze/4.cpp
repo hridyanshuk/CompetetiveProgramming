@@ -91,13 +91,27 @@ int MIN(int a, int b)
 
 int main()
 {
-    int t;
-    cin>>t;
-    while(t--)
-    {
+    
+    
         int n;
         cin>>n;
+    char s[n+1];
+    cin>>s;
+    int arr[9];
+    FOR(i,0,9)
+    {
+        cin>>arr[i];
     }
+    FOR(i,0,n)
+    {
+        if(arr[s[i]-'0']>(s[i]-'0'))
+        {
+            s[i]=arr[s[i]-'0'];
+        }
+        else
+            break;
+    }
+    cout<<s<<endl;
 
     return 0;
 }

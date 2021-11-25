@@ -95,8 +95,20 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n;
-        cin>>n;
+        int m, n;
+        cin>>n>>m;
+        int p=n*m;
+        int s;
+        if(p%3==1)
+        {
+            p=p-4;
+            s=p/3+2;
+        }
+        else
+        {
+            s=(p+3-1)/3;
+        }
+        cout<<s<<endl;
     }
 
     return 0;

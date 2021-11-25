@@ -89,6 +89,18 @@ int MIN(int a, int b)
     return b;
 }
 
+bool palin(int *arr, int n)
+{
+    FOR(i,0,n/2)
+    {
+        if(arr[i]!=arr[n-1-i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main()
 {
     int t;
@@ -97,6 +109,52 @@ int main()
     {
         int n;
         cin>>n;
+        int arr[n];
+        input(arr, n);
+        int distinct[10]={0};//3 6 7 4 6 9
+
+        //0 0 0 1 1 0 2 1 0 1
+        //0 1 2 3 4 5 6 7 8 9
+        int arr1[n];
+        if(palin(arr, n))
+        {
+            YES;
+            continue;
+        }
+        FOR(i,0,n)
+        {
+            distinct[arr[i]]=distinct[arr[i]]+1;
+        }
+        bool stat=false;
+        FOR(i,0,10)
+        {
+            if(stat)
+                break;
+            if(distinct[i]>0)
+            {
+                
+                int c=0;
+                FOR(j,0,n)
+                {
+                    if(arr[j]==i)
+                        continue;
+                    arr1[c]=arr[j];
+                    c++;
+                }
+                
+                if(palin(arr1, c))
+                {
+                    YES;
+                    stat=true;
+                }
+            }
+        }
+        if(stat==false)
+        {
+            NO;
+        }
+        else
+            continue;
     }
 
     return 0;

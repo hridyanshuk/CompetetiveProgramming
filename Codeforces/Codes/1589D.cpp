@@ -97,6 +97,14 @@ int main()
     {
         int n;
         cin>>n;
+        int x;
+        cout<<"? 1 "<<n<<endl;
+        cin>>x;
+        
+        FOR(i,0,40)
+        {
+            
+        }
     }
 
     return 0;

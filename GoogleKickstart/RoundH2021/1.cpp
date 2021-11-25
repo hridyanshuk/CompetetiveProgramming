@@ -93,10 +93,44 @@ int main()
 {
     int t;
     cin>>t;
-    while(t--)
+    FOR(k,0,t)
     {
-        int n;
-        cin>>n;
+        char s[100001];
+        char f[27];
+        cin>>s;cin>>f;
+        int count[26]={0};
+        /*FOR(i,0,strlen(s))
+        {
+            count[s[i]-'a']=count[s[i]-'a']+1;
+        }
+        int min=0;
+        
+        FOR(i,0,26)
+        {
+            if(count[i]>0)
+            {
+                int m=26;
+                FOR(j,0,strlen(f))
+                {
+                    m=MIN(m,abs(i-(f[j]-'a')));
+                }
+                min+=m*count[i];
+            }
+        }*/
+        int n=strlen(s);
+        int fn=strlen(f);
+        int min=0;
+        FOR(i,0,n)
+        {
+            int m=27;
+            FOR(j,0,fn)
+            {
+                m=MIN(abs(s[i]-f[j]), m);
+            }
+            min+=m;
+        }
+
+        cout<<"Case #"<<k+1<<": "<<min<<endl;
     }
 
     return 0;

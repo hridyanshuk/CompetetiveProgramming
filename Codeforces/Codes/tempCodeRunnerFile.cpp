@@ -8,6 +8,8 @@ typedef long long ll;
 
 #define FOR(i,m,n) for(int i=m ; i<n ; i++)
 #define XOR(a,b) ((a)|(b))-((a)&(b))
+#define YES cout<<"YES\n"
+#define NO cout<<"NO\n"
 
 const ll MOD_N=1000000007;
 
@@ -36,6 +38,18 @@ void output(int *arr, int n)
     }
     cout<<endl;
 }
+bool prime(int n)
+{
+    int r=sqrt(n)+1;
+    FOR(i,2,r)
+    {
+        if(n%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
 
 int xorTillN(int n)
 {
@@ -57,6 +71,24 @@ int xorTillN(int n)
     }
 }
 
+void delFromArr(int *arr, int i, int *n)
+{
+    FOR(j,i,*n-1)
+    {
+        arr[j]=arr[j+1];
+    }
+    *n=*n-1;
+}
+
+int MIN(int a, int b)
+{
+    if(a<b)
+    {
+        return a;
+    }
+    return b;
+}
+
 int main()
 {
     int t;
@@ -65,69 +97,16 @@ int main()
     {
         int n;
         cin>>n;
-        char c;
-        cin>>c;
-        char arr[n+1];
-        cin>>arr;
-        int count=0;
-        int index[n];
-        int in=-1;
-        for(int i=0 ; i<n ; i++)
+        int m;
+        int n;
+        cin>>m>>n;
+        if(m==1||n==1)
         {
-            if(arr[i]!=c)
-            {
-                index[count]=i+1;
-                count++;
-            }
-        }
-        if(count>0)
-        {
-            if(count==1 && arr[n-1]!=c)
-            {
-                cout<<1<<endl<<n-1<<endl;
-            }
-            else if(count==1 && arr[n-1]==c)
-            {
-                cout<<1<<endl<<n<<endl;
-            }
-            else
-            {
-                FOR(i,1,n)
-                {
-                    in=i+1;
-                    FOR(j,0,count)
-                    {
-                        if(in%index[j]==0)
-                        {
-                            in=-1;
-                            break;
-                        }
-                    }
-                    if(in!=-1)
-                    {
-                        break;
-                    }
-                }
-                if(in==-1)
-                {
-                    if(arr[n-1]!=c)
-                    {
-                        cout<<2<<endl<<n<<" "<<n-1<<endl;
-                    }
-                    else
-                    {
-                        cout<<1<<endl<<n<<endl;
-                    }
-                }
-                else
-                {
-                    cout<<1<<endl<<in<<endl;
-                }
-            }
+            cout<<1<<endl;
         }
         else
         {
-            cout<<0<<endl;
+            cout<<2<<endl;
         }
     }
 

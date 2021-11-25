@@ -95,8 +95,22 @@ int main()
     cin>>t;
     while(t--)
     {
+        
+        int m;
         int n;
-        cin>>n;
+        cin>>m>>n;
+        if(m==1 && n==1)
+        {
+            cout<<0<<endl;
+        }
+        else if(m==1||n==1)
+        {
+            cout<<1<<endl;
+        }
+        else
+        {
+            cout<<2<<endl;
+        }
     }
 
     return 0;

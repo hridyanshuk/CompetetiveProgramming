@@ -41,7 +41,7 @@ void output(int *arr, int n)
 bool prime(int n)
 {
     int r=sqrt(n)+1;
-    FOR(i,2,r)
+    FOR(i,0,r)
     {
         if(n%i==0)
         {
@@ -97,6 +97,9 @@ int main()
     {
         int n;
         cin>>n;
+        char s[n+1];
+        cin>>s;
+        
     }
 
     return 0;

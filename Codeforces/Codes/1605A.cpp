@@ -41,7 +41,7 @@ void output(int *arr, int n)
 bool prime(int n)
 {
     int r=sqrt(n)+1;
-    FOR(i,2,r)
+    FOR(i,0,r)
     {
         if(n%i==0)
         {
@@ -89,14 +89,23 @@ int MIN(int a, int b)
     return b;
 }
 
+int d(int a, int b, int c)
+{
+    return abs(a+b-2*c);
+}
+
 int main()
 {
     int t;
     cin>>t;
     while(t--)
     {
-        int n;
-        cin>>n;
+        int a, b, c;
+        cin>>a>>b>>c;
+        int s=abs(a+b-2*c);
+        s=s%3;
+        
+        cout<<MIN(s, 3-s)<<endl;;
     }
 
     return 0;
