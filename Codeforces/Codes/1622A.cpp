@@ -2,10 +2,11 @@
 #include <string.h>
 #include <math.h>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 typedef long long ll;
-
+typedef float ft;
 #define FOR(i,m,n) for(int i=m ; i<n ; i++)
 #define XOR(a,b) ((a)|(b))-((a)&(b))
 #define YES cout<<"YES\n"
@@ -95,7 +96,39 @@ int main()
     cin>>t;
     while(t--)
     {
-        cout<<"Hemloo\n";
+        int arr[3];
+        input(arr,3);
+        sort(arr,arr+3);
+        
+        //a[0]<a[1]<a[2]
+        
+        if(arr[2]==arr[1]+arr[0])
+        {
+            YES;
+        }
+        else if(arr[0]==arr[1])
+        {
+            if(arr[2]%2==0)
+            {
+                YES;
+            }
+            else
+            {
+                NO;
+            }
+        }
+        else if(arr[1]==arr[2])
+        {
+            if(arr[0]%2==0)
+            {
+                YES;
+            }
+            else
+                NO;
+        }
+        else
+            NO;
+        
     }
 
     return 0;

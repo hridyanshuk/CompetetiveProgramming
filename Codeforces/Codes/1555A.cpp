@@ -10,6 +10,7 @@ typedef long long ll;
 #define XOR(a,b) ((a)|(b))-((a)&(b))
 #define YES cout<<"YES\n"
 #define NO cout<<"NO\n"
+#define CEIL(a,b) ((a) + (b) - 1) / (b);
 
 const ll MOD_N=1000000007;
 
@@ -95,7 +96,33 @@ int main()
     cin>>t;
     while(t--)
     {
-        cout<<"Hemloo\n";
+        ll n;
+        cin>>n;
+        ll temp=(n+9)/10;
+        if(n%18 <=6)
+        {
+            cout<<15*temp<<endl;
+        }
+        else if(n%18<=8)
+        {
+            cout<<20*temp<<endl;
+        }
+        else if(n%18<=10)
+        {
+            cout<<25*temp<<endl;
+        }
+        else if(n%18<=14)
+        {
+            cout<<30*temp<<endl;
+        }
+        else if(n%18<=16)
+        {
+            cout<<40*temp<<endl;
+        }
+        else
+        {
+            cout<<45*temp<<endl;
+        }
     }
 
     return 0;

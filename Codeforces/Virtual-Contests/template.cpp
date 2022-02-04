@@ -10,6 +10,7 @@ typedef long long ll;
 #define XOR(a,b) ((a)|(b))-((a)&(b))
 #define YES cout<<"YES\n"
 #define NO cout<<"NO\n"
+#define CEIL(a,b) ((a)+(b)-1)/b;
 
 const ll MOD_N=1000000007;
 
@@ -95,19 +96,7 @@ int main()
     cin>>t;
     while(t--)
     {
-        int n;
-        cin>>n;
-        int m;
-        int n;
-        cin>>m>>n;
-        if(m==1||n==1)
-        {
-            cout<<1<<endl;
-        }
-        else
-        {
-            cout<<2<<endl;
-        }
+        cout<<"Hemloo\n";
     }
 
     return 0;
